@@ -5,10 +5,10 @@ This will create the QR image in the same directory it is launched from
 
 
 ## Installation Commands
-git clone https://github.com/YSSVirus/QR_Code_Generator.git
+git clone https://github.com/YSSVirus/QR-Code-Generator.git
 
-cd QR_Code_Generator
+cd QR-Code-Generator
 
 python -r requirments.txt
 
-python QR_Code_Generator.py
+python QR-Generator.py
