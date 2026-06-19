@@ -6,6 +6,11 @@ This will create the QR image in the same directory it is launched from.
 I have now added arguments for this with the prompts being backup.
 
 
+## GUI Addition
+
+I added a simple gui to this using tkinter so it should work by default with alot of systems, I will be improving the UI as time goes on.
+
+
 ## Installation Commands
 git clone https://github.com/YSSVirus/QR-Code-Generator.git
 
@@ -26,3 +31,7 @@ python QR-Generator.py --help
 - Example with arguments
 
 python QR_Code_Generator.py -url "https://ysslabs.com" -bg "black" -fg "white" -f "test"
+
+- Launch GUI
+
+python QR_Code_Generator.py
