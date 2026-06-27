@@ -10,7 +10,7 @@ I have now added arguments for this with the prompts being backup.
 
 I added a simple gui to this using tkinter so it should work by default with alot of systems, I will be improving the UI as time goes on.
 
-<img width="448" height="501" alt="image" src="https://github.com/user-attachments/assets/7b695a23-1ca4-42dd-858b-eb015875d1c9" />
+<img width="550" height="540" alt="image" src="https://github.com/user-attachments/assets/879a20a9-bd36-4a10-88fc-a56290bd2fa8" />
 
 
 
