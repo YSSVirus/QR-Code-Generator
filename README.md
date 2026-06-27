@@ -12,6 +12,9 @@ I added a simple gui to this using tkinter so it should work by default with alo
 
 <img width="550" height="540" alt="image" src="https://github.com/user-attachments/assets/879a20a9-bd36-4a10-88fc-a56290bd2fa8" />
 
+<img width="556" height="540" alt="image" src="https://github.com/user-attachments/assets/40c0c225-8e28-4b42-bef2-125660d0572a" />
+
+
 
 
 ## Installation Commands
