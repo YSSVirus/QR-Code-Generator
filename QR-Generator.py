@@ -5,6 +5,8 @@ import tkinter as tk
 import qrcode
 import argparse
 import os
+from ttkbootstrap import Window
+from ttkbootstrap.constants import *
 
 
 
@@ -41,6 +43,22 @@ def app_gui():
         global color_background
         global color_foreground
         global file_qr_code
+        global theme_mode
+        global theme_icon
+
+        def action_toggle_theme():
+                global theme_mode
+                global theme_icon
+                root.style.theme_use(
+                        "litera" if root.style.theme.name == "darkly" else "darkly"
+                )
+                if theme_mode == "dark":
+                        theme_mode = "light"
+                        button_theme.config(text="☾")
+                else:
+                        theme_mode = "dark"
+                        button_theme.config(text="☀")
+                        pass
 
         def action_picker_color_background():
                 global color_background
@@ -62,23 +80,40 @@ def app_gui():
                 file_ext = ".png"
                 file_fullname = file_name_cleaned + file_ext
 
+                if website_cleaned == "" or website_cleaned == None:
+                        win = tk.Toplevel(root)
+                        win.title("ERROR!")
+                        win.geometry("225x50")
+                        win.resizable(False, False)
+
+                        ttk.Label(win, text="A Url is REQUIRED!").pack(expand=True)
+
+                        win.after(2500, win.destroy)
+                        return
+
                 create_qr_code(website_cleaned, file_fullname, color_foreground, color_background)
                 
                 file_qr_code = ImageTk.PhotoImage(Image.open(file_fullname))
                 label_image = Label(root, image = file_qr_code)
-                label_image.grid(row=4, column=0)
+                label_image.grid(row=5, column=0)
 
-        root = Tk()
-
+        # Main App Variables and Assignments 
+        root = Window(themename="darkly")
         website = tk.StringVar()
         file_name = tk.StringVar()
         file_qr_code = ""
         color_background = "white"
         color_foreground = "black"
 
+        # Theme and Style
+        root.title("QR Code Generator")
         frm = ttk.Frame(root, padding=10)
+        theme_mode = "dark"
+        theme_icon = "☀"
 
-        button_quit = ttk.Button(frm, text="Quit", command=root.destroy)
+
+        # Inputs
+        button_theme = ttk.Button(root, text = theme_icon, command = action_toggle_theme)
 
         label_name = ttk.Label(root, text = 'File Name')
         input_name = ttk.Entry(root,textvariable = file_name, font=('calibre',10,'normal'))
@@ -86,26 +121,22 @@ def app_gui():
         label_website = ttk.Label(root, text = 'website URL for QR Code')
         input_website = ttk.Entry(root,textvariable = website, font=('calibre',10,'normal'))
 
-        label_color_background = ttk.Label(root, text = 'Background color for QR Code')
-        button_color_background = ttk.Button(root, text = "Select color", command = action_picker_color_background)
-
-        label_color_foreground = ttk.Label(root, text = 'Foreground color for QR Code')
-        button_color_foreground = ttk.Button(root, text = "Select color", command = action_picker_color_foreground)
+        button_color_background = ttk.Button(root, text = "Select Background color", command = action_picker_color_background)
+        button_color_foreground = ttk.Button(root, text = "Select Foreground color", command = action_picker_color_foreground)
 
         button_submit = ttk.Button(root,text = "Create QR Code", command = action_submit)
 
-        label_name.grid(row=0, column=0)
-        input_name.grid(row=0, column=1)
-        label_website.grid(row=1, column=0)
-        input_website.grid(row=1, column=1)
-        button_submit.grid(row=1, column=2)
-        label_color_background.grid(row=2, column=0)
-        button_color_background.grid(row=2, column=1)
 
-        label_color_foreground.grid(row=3, column=0)
+        # Build GUI
+        button_theme.grid(row=0, column=2)
+        label_name.grid(row=1, column=0)
+        input_name.grid(row=1, column=1)
+        label_website.grid(row=2, column=0)
+        input_website.grid(row=2, column=1)
+        button_color_background.grid(row=3, column=0)
         button_color_foreground.grid(row=3, column=1)
-        
-        button_quit.grid(row=5, column=0)
+        button_submit.grid(row=4, column=1)
+
         frm.grid()
         root.mainloop()
 
