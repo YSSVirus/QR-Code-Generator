@@ -228,11 +228,11 @@ def app_gui():
         }
 
         color_pattern = {
-                "Solid": create_color_pattern_image("pattern_solid_pattern.png", "SolidFillColorMask"),
-                "Radial Gradiant": create_color_pattern_image("pattern_radial-gradiant.png", "RadialGradiantColorMask"),
-                "Square Gradiant": create_color_pattern_image("pattern_square-gradiant.png", "RadialGradiantColorMask"),
-                "Horizontal Gradiant": create_color_pattern_image("pattern_horizontal-gradiant.png", "HorizontalGradiantColorMask"),
-                "Vertical Gradiant": create_color_pattern_image("pattern_vertical-gradiant.png", "VerticalGradiantColorMask")
+                "Solid": create_color_pattern_image("images/color_patterns/pattern_solid_pattern.png", "SolidFillColorMask"),
+                "Radial Gradiant": create_color_pattern_image("images/color_patterns/pattern_radial-gradiant.png", "RadialGradiantColorMask"),
+                "Square Gradiant": create_color_pattern_image("images/color_patterns/pattern_square-gradiant.png", "RadialGradiantColorMask"),
+                "Horizontal Gradiant": create_color_pattern_image("images/color_patterns/pattern_horizontal-gradiant.png", "HorizontalGradiantColorMask"),
+                "Vertical Gradiant": create_color_pattern_image("images/color_patterns/pattern_vertical-gradiant.png", "VerticalGradiantColorMask")
         }
 
         root.title("QR Code Generator")
@@ -307,4 +307,4 @@ else:
         else:
                 file_name = arg_items.file
 
-        create_qr_code(website, file_name, fg_color, bg_color)
+        create_qr_code(website, file_name)
