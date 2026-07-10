@@ -133,6 +133,7 @@ def app_gui():
                         color_edge = tuple(int(c) for c in choice[0])
 
         def create_color_pattern_image(file_fullname, text, size=(50, 50)):
+                file_full_path = os.getcwd(), file_fullname
                 img = Image.open(file_fullname)
                 img = img.resize(size, Image.Resampling.LANCZOS)
                 draw = ImageDraw.Draw(img)
