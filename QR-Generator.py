@@ -133,7 +133,8 @@ def app_gui():
                         color_edge = tuple(int(c) for c in choice[0])
 
         def create_color_pattern_image(file_fullname, text, size=(50, 50)):
-                file_full_path = os.getcwd(), file_fullname
+                file_full_path = os.getcwd() + "\\" + file_fullname
+                print(file_full_path)
                 img = Image.open(file_full_path)
                 img = img.resize(size, Image.Resampling.LANCZOS)
                 draw = ImageDraw.Draw(img)
@@ -229,11 +230,11 @@ def app_gui():
         }
 
         color_pattern = {
-                "Solid": create_color_pattern_image("images/color_patterns/pattern_solid_pattern.png", "SolidFillColorMask"),
-                "Radial Gradiant": create_color_pattern_image("images/color_patterns/pattern_radial-gradiant.png", "RadialGradiantColorMask"),
-                "Square Gradiant": create_color_pattern_image("images/color_patterns/pattern_square-gradiant.png", "RadialGradiantColorMask"),
-                "Horizontal Gradiant": create_color_pattern_image("images/color_patterns/pattern_horizontal-gradiant.png", "HorizontalGradiantColorMask"),
-                "Vertical Gradiant": create_color_pattern_image("images/color_patterns/pattern_vertical-gradiant.png", "VerticalGradiantColorMask")
+                "Solid": create_color_pattern_image("images\\color_patterns\\pattern_solid_pattern.png", "SolidFillColorMask"),
+                "Radial Gradiant": create_color_pattern_image("images\\color_patterns\\pattern_radial-gradiant.png", "RadialGradiantColorMask"),
+                "Square Gradiant": create_color_pattern_image("images\\color_patterns\\pattern_square-gradiant.png", "RadialGradiantColorMask"),
+                "Horizontal Gradiant": create_color_pattern_image("images\\color_patterns\\pattern_horizontal-gradiant.png", "HorizontalGradiantColorMask"),
+                "Vertical Gradiant": create_color_pattern_image("images\\color_patterns\\pattern_vertical-gradiant.png", "VerticalGradiantColorMask")
         }
 
         root.title("QR Code Generator")
