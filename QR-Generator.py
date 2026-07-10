@@ -134,7 +134,7 @@ def app_gui():
 
         def create_color_pattern_image(file_fullname, text, size=(50, 50)):
                 file_full_path = os.getcwd(), file_fullname
-                img = Image.open(file_fullname)
+                img = Image.open(file_full_path)
                 img = img.resize(size, Image.Resampling.LANCZOS)
                 draw = ImageDraw.Draw(img)
                 width, height = img.size
